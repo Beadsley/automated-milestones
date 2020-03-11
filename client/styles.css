@@ -1,0 +1,99 @@
+.container {
+    margin: auto;
+    padding: 2%;
+    background-color: whitesmoke;
+}
+.circle-container{
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    grid-gap: 5%;
+    position: absolute;
+    bottom: 0;
+}
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    background-color: burlywood;
+    border-radius: 50%;
+    opacity: 0.8;   
+
+   
+}
+.inner-circle {
+
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 50%;
+    
+}
+.first-circle{
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    border-radius: 50%;
+}
+.second-circle{
+    height: 15px;
+    width: 15px;
+    background-color: black;
+    border-radius: 50%;
+}
+.third-circle{
+    height: 10px;
+    width: 10px;
+    background-color: black;
+    border-radius: 50%;
+}
+.fourth-circle{
+    height: 5px;
+    width: 5px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+
+.milestones-container {
+    margin: 10px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 55px;
+    grid-auto-flow: column;
+    position: relative;
+    
+}
+
+.milstone-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 450px;
+    
+}
+
+.milestone {
+    border: 5px solid white;
+    background-color: burlywood;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    padding: 5%;
+    text-align: center;
+    display: grid;
+    align-content: center;
+    opacity: 0.8;
+        
+}
+
+
+button{
+    height: 200px;
+    width: 200px;
+}
+
+.material-icons.md-48 { font-size: 48px; }
