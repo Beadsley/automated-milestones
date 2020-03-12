@@ -84,7 +84,9 @@ const fetchFromGithubAPI = async (endpoint) => {
 */
 const getMilestones = async () => {
   const response = await fetchFromGithubAPI(`/repos/${USER}/${REPO}/milestones`);
+  
   const milestones = response.data.map(milestone => {
+
     return {
       url: milestone.url,
       title: milestone.title,
@@ -93,7 +95,7 @@ const getMilestones = async () => {
       due: milestone.due_on
     }
   });
-  
+
   return milestones;
 }
 

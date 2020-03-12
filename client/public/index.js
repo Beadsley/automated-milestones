@@ -2,12 +2,25 @@
 //!overtime                 #d32f2f     alarm_off
 //!done                #43a047           alarm_on        
 
-window.addEventListener('load', async() => {
+window.addEventListener('load', async () => {
     console.log('onload');
     const res = await fetch('/api/milestones');
-    const milestones= await res.json()
-     console.log(milestones);
-     
+    const milestones = await res.json()
+    console.log(milestones);
+
+    const currentDate = new Date();
+    console.log(currentDate);
+    milestones.forEach(element => {
+        const duedate = Date.parse(element.due);
+        if (currentDate > duedate) {
+            console.log('fuuuuck');
+        }
+        else {
+            console.log('ok');
+
+        }
+    });
+
 
 });
 
