@@ -1,7 +1,10 @@
+*{
+    
+}
 .container {
     margin: auto;
-    padding: 2%;
-    background-color: whitesmoke;
+    
+    width: max-content;
 }
 .circle-container{
     display: grid;
@@ -22,6 +25,28 @@
     opacity: 0.8;   
 
    
+}
+header {
+    display: grid;
+    grid-template-columns: 30% 60%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-right: 15%;
+
+}
+h1{
+    font-size: 40px;
+    font-weight: lighter;
+    color: #201f1f;
+    opacity: 0.9;
+}
+h2 {
+    font-size: 30px;
+    line-height: 1.5;
+    font-weight: lighter;
+    color: #ac5c51;
+    opacity: 0.9;
 }
 .info-btn{
     color: white;
@@ -61,6 +86,7 @@
 
 
 .milestones-container {
+    padding: 2%;
     margin: 10px;
     display: grid;
     justify-content: center;
