@@ -12,17 +12,19 @@ let ACCESSTOKEN;
  * @param {import('probot').Application} app
  */
 module.exports = app => {
-  ACCESSTOKEN = process.env.TOKEN;
+  ACCESSTOKEN = process.env.TOKEN;  
 
   router.use(express.static('client/public'))
   router.listen(8080, async () => {
     console.log('http://localhost:8080/');
-    
-    const result = getMilestones();
-    console.log(result);
-    
-
   });
+
+  router.get('/api/milestones', async (req, res) => {
+    const milestones = await getMilestones();
+    res.json(milestones);
+  });
+
+
   // Your code here
   app.log('Yay, the app was loaded!', ACCESSTOKEN)
 
@@ -82,6 +84,9 @@ const fetchFromGithubAPI = async (endpoint) => {
 */
 const getMilestones = async () => {
   const milestones = await fetchFromGithubAPI(`/repos/${USER}/${REPO}/milestones`);
-  console.log(milestones);
+  return milestones;
 }
+
+
+module.exports.router = router;
 

@@ -1,6 +1,8 @@
-
 window.addEventListener('load', () => {
     console.log('onload');
+    fetch('/api/milestones')
+        .then(res => res.json())
+        .then(json => console.log(json));
 
 });
 
