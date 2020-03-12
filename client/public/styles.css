@@ -53,12 +53,15 @@ h2 {
     opacity: 0.9;
 }
 
+.info {
+    display: grid;
+    grid-template-rows: 36% 36%;
+    align-content: center;
+}
+
 main h2 {
     font-size: 30px;
     color: #424242;
-}
-.github{
-    color: plum;
 }
 
 h3 {
@@ -67,23 +70,16 @@ h3 {
     color: white;
 }
 
-
 .info-btn {
     color: white;
 }
 
-
-.info-container h3{
-
+.info-container h3 {
     width: 200px;
-
-
 }
-.milestone i{
 
+.milestone i {
     width: 48px;
-
-
 }
 
 .first-circle {
@@ -129,7 +125,7 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 370px;
+    height: 360px;
 }
 
 /* 
