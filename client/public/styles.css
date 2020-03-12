@@ -1,4 +1,6 @@
-* {}
+* {
+    font-family: 'Crete Round', serif;
+}
 
 .container {
     margin: auto;
@@ -37,14 +39,14 @@ header {
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 80px;
     font-weight: lighter;
     color: #201f1f;
     opacity: 0.9;
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 40px;
     line-height: 1.5;
     font-weight: lighter;
     color: #424242;
@@ -52,6 +54,7 @@ h2 {
 }
 
 main h2 {
+    font-size: 30px;
     color: #424242;
 }
 .github{
@@ -63,6 +66,7 @@ h3 {
     font-weight: normal;
     color: white;
 }
+
 
 .info-btn {
     color: white;
