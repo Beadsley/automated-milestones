@@ -8,37 +8,48 @@ window.addEventListener('load', async () => {
     const milestones = await res.json()
     console.log(milestones);
     renderMilestones(milestones);
-    buttons();
+    buttons(milestones);
 });
 
-const buttons = () => {
+const buttons = (milestones) => {
     const infoButtons = document.querySelectorAll('#info');
-    infoButtons.forEach(info => {
+    infoButtons.forEach((info, index) => {
         console.log('here');
-        
+
         info.addEventListener('click', () => {
-            console.log('clicked');
-    
+            console.log('clicked', index);
+            renderMilestoneInfo(milestones[index], index);
         });
-    
+
         info.addEventListener('mouseover', () => {
             console.log('hover no');
             document.body.style.cursor = 'pointer';
-    
+
         });
-    
+
         info.addEventListener('mouseleave', () => {
             console.log('hover');
             document.body.style.cursor = 'default';
-    
+
         });
     });
+}
+
+const renderMilestoneInfo = (milestone, index) => {
+    console.log(milestone);
+    html= `
+        <p> ${milestone.description}</p>
+        <p> ${milestone.state}</p>
+    `
+    console.log(html);
+    const container = document.querySelector(`.info-container-${index}`);
+    container.innerHTML = html;
 }
 
 
 const renderMilestones = (milestones) => {
     const html = milestones
-        .map((x) => {
+        .map((x, index) => {
             let colour;
             let icon;
             if (x.state === "open") {
@@ -57,7 +68,7 @@ const renderMilestones = (milestones) => {
         <div class="milstone-container">
         <h2>${x.due}</h1>
         <div class="milestone arrow" style="background-color: ${colour};">
-            <div class="info-container">
+            <div class="info-container-${index}">
                 <h3> ${x.title} </h1>
                 <i class="material-icons info-btn md-48">${icon}</i></span>
             </div>
@@ -77,8 +88,7 @@ const renderMilestones = (milestones) => {
 
 
                         `});
-    console.log(html.join(''));
-    
+
     const container = document.querySelector('.milestones-container');
     container.innerHTML = html.join('');
 }
