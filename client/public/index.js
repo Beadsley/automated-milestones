@@ -7,6 +7,7 @@ window.addEventListener('load', async () => {
     const res = await fetch('/api/milestones');
     const milestones = await res.json()
     console.log(milestones);
+    renderMilestones(milestones);
 });
 
 const infoButtons = document.querySelectorAll('#info');
@@ -28,6 +29,37 @@ infoButtons.forEach(info => {
 
     });
 });
+
+const renderMilestones = (milestones) => {
+    const html = milestones
+        .map((x) => `
+        <div class="milstone-container">
+        <h2>${x.due}</h1>
+        <div class="milestone arrow" style="background-color: #ff7043;">
+            <div class="info-container">
+                <h3> Database </h1>
+                <i class="material-icons info-btn md-48">access_time</i></span>
+            </div>
+
+        </div>
+        <div class="circle-container" ">
+            <span class="info-circle" id="info" style="background-color: #ff7043;"><i class="material-icons info-btn md-36">info</i></span>
+            <span class="first-circle"></span>
+            <span class="second-circle"></span>
+            <span class="third-circle"></span>
+            <span class="fourth-circle"></span>
+        </div>
+
+    </div>
+
+    <i class="material-icons md-48">keyboard_arrow_right</i>
+
+
+                        `);
+
+    const container = document.querySelector('.milestones-container');
+    container.innerHTML = html.join('');
+}
 
 
 

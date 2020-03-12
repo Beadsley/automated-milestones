@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express();
 const fetch = require('node-fetch');
+var moment = require('moment');
 
 const REPO = 'Simple-Website-using-HTML-CSS-and-Javascript-';
 const USER = 'Beadsley';
@@ -87,13 +88,16 @@ const getMilestones = async () => {
   const currentDate = new Date();
   const milestones = response.data.map(milestone => {
     const dueDate = Date.parse(milestone.due_on);
+    const formattedDate = moment(dueDate).format("MMM Do"); 
+    console.log(formattedDate);
+    
     if (currentDate > dueDate && milestone.state === "open") { milestone.state = "over" }
     return {
       url: milestone.url,
       title: milestone.title,
       description: milestone.description,
       state: milestone.state,
-      due: milestone.due_on
+      due: formattedDate
     }
   });
 
