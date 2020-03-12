@@ -1,8 +1,13 @@
-window.addEventListener('load', () => {
+//!pending                #ff7043       access_time
+//!overtime                 #d32f2f     alarm_off
+//!done                #43a047           alarm_on        
+
+window.addEventListener('load', async() => {
     console.log('onload');
-    fetch('/api/milestones')
-        .then(res => res.json())
-        .then(json => console.log(json));
+    const res = await fetch('/api/milestones');
+    const milestones= await res.json()
+     console.log(milestones);
+     
 
 });
 
