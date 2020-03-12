@@ -32,18 +32,33 @@ infoButtons.forEach(info => {
 
 const renderMilestones = (milestones) => {
     const html = milestones
-        .map((x) => `
+        .map((x) => {
+            let colour;
+            let icon;
+            if (x.state === "open") {
+                colour = "#43a047";
+                icon = "alarm_time";
+            }
+            else if (x.state === "closed") {
+                colour = "#43a047";
+                icon = "alarm_on";
+            }
+            else {
+                colour = "#d32f2f";
+                icon = "alarm_off";
+            }
+            return `
         <div class="milstone-container">
         <h2>${x.due}</h1>
-        <div class="milestone arrow" style="background-color: #ff7043;">
+        <div class="milestone arrow" style="background-color: ${colour};">
             <div class="info-container">
-                <h3> Database </h1>
-                <i class="material-icons info-btn md-48">access_time</i></span>
+                <h3> ${x.title} </h1>
+                <i class="material-icons info-btn md-48">${icon}</i></span>
             </div>
 
         </div>
         <div class="circle-container" ">
-            <span class="info-circle" id="info" style="background-color: #ff7043;"><i class="material-icons info-btn md-36">info</i></span>
+            <span class="info-circle" id="info" style="background-color: ${colour};"><i class="material-icons info-btn md-36">info</i></span>
             <span class="first-circle"></span>
             <span class="second-circle"></span>
             <span class="third-circle"></span>
@@ -55,8 +70,9 @@ const renderMilestones = (milestones) => {
     <i class="material-icons md-48">keyboard_arrow_right</i>
 
 
-                        `);
-
+                        `});
+    console.log(html.join(''));
+    
     const container = document.querySelector('.milestones-container');
     container.innerHTML = html.join('');
 }
