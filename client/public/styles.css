@@ -27,11 +27,13 @@
 
 header {
     display: grid;
-    grid-template-columns: 30% 60%;
+    grid-template-columns: 10% 90%;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: start;
+    justify-items: start;
+    padding: 1%;
     margin-right: 15%;
+    grid-gap: 60px;
 }
 
 h1 {
