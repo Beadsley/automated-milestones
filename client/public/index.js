@@ -38,9 +38,8 @@ const buttons = (milestones) => {
 const renderMilestoneInfo = (milestone, index) => {
     console.log(milestone);
     html= `
-        <p> ${milestone.description}</p>
-        <p> ${milestone.state}</p>
-        <a href="${milestone.url}"> Click <a> 
+        <h3> ${milestone.description}</h3>       
+        <a href="${milestone.url}">  <img class="github"src="./github.png" width="80" height="32" > <a> 
     `
     console.log(html);
     const container = document.querySelector(`.info-container-${index}`);
