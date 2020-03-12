@@ -14,13 +14,13 @@
     position: absolute;
     bottom: 0;
 }
-.circle {
+.info-circle {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 60px;
     width: 60px;
-    background-color: burlywood;
+    background-color: #43a047;
     border-radius: 50%;
     opacity: 0.8;   
 
@@ -48,17 +48,18 @@ h2 {
     color: #ac5c51;
     opacity: 0.9;
 }
+main h2 {
+    color: #201f1f;
+}
+h3{
+    font-size: 24px;
+    font-weight: lighter;
+    color: #201f1f;
+}
 .info-btn{
     color: white;
 }
-.inner-circle {
 
-    height: 25px;
-    width: 25px;
-    background-color: white;
-    border-radius: 50%;
-    
-}
 .first-circle{
     height: 20px;
     width: 20px;
@@ -101,13 +102,13 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 450px;
+    height: 395px;
     
 }
 
 .milestone {
     border: 5px solid white;
-    background-color: burlywood;
+    background-color: #43a047;
     border-radius: 50%;
     width: 200px;
     height: 200px;
