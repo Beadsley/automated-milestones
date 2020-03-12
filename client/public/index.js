@@ -8,27 +8,33 @@ window.addEventListener('load', async () => {
     const milestones = await res.json()
     console.log(milestones);
     renderMilestones(milestones);
+    buttons();
 });
 
-const infoButtons = document.querySelectorAll('#info');
-infoButtons.forEach(info => {
-    info.addEventListener('click', () => {
-        console.log('clicked');
-
+const buttons = () => {
+    const infoButtons = document.querySelectorAll('#info');
+    infoButtons.forEach(info => {
+        console.log('here');
+        
+        info.addEventListener('click', () => {
+            console.log('clicked');
+    
+        });
+    
+        info.addEventListener('mouseover', () => {
+            console.log('hover no');
+            document.body.style.cursor = 'pointer';
+    
+        });
+    
+        info.addEventListener('mouseleave', () => {
+            console.log('hover');
+            document.body.style.cursor = 'default';
+    
+        });
     });
+}
 
-    info.addEventListener('mouseover', () => {
-        console.log('hover no');
-        document.body.style.cursor = 'pointer';
-
-    });
-
-    info.addEventListener('mouseleave', () => {
-        console.log('hover');
-        document.body.style.cursor = 'default';
-
-    });
-});
 
 const renderMilestones = (milestones) => {
     const html = milestones

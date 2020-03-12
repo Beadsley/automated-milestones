@@ -89,7 +89,6 @@ const getMilestones = async () => {
   const milestones = response.data.map(milestone => {
     const dueDate = Date.parse(milestone.due_on);
     const formattedDate = moment(dueDate).format("MMM Do"); 
-    console.log(formattedDate);
     
     if (currentDate > dueDate && milestone.state === "open") { milestone.state = "over" }
     return {

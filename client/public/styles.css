@@ -63,8 +63,16 @@ h3 {
     color: white;
 }
 
-.info-container {
-    
+
+.info-container h3{
+
+    width: 200px;
+
+
+}
+.info-container i{
+
+    width: 48px;
 
 
 }
