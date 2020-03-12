@@ -33,18 +33,21 @@ module.exports = app => {
 
   app.on('push', async context => {
     app.log.info('push open:')
-    app.log.info(context.payload.after);
+    app.log.info('commit url', context.payload.commits[0].url);
     app.log.info('REPO: ', context.payload.repository.name);
     app.log.info('ID: ', context.payload.commits[0].id);
     app.log.info('Message: ', context.payload.head_commit.message);
     const repo = context.payload.repository.name;
     const commitmessage = context.payload.head_commit.message;
     const milestoneids = await commitMessages(commitmessage);
+    const commit_url=context.payload.commits[0].url;
     app.log.info('milestone: ', milestoneids[0]);
 
     const milestone = await getMilestone(milestoneids[0]);
+    //const milestone = await getMilestone(0);
 
-    updateMilestone(milestone.id, milestone.title, milestone.description, milestone.due_on);
+
+    updateMilestone(milestone.id, milestone.title, `${milestone.description} commit:${commit_url}`, milestone.due_on);
     
     app.log.info('URL: ', milestone.url);
 

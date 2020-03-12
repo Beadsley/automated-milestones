@@ -37,8 +37,20 @@ const buttons = (milestones) => {
 
 const renderMilestoneInfo = (milestone, index) => {
     console.log(milestone);
+    let milestoneDescription;
+    const regex = /^(.+?)(?=commit)/gm;
+    const description=regex.exec(milestone.description);
+    console.log('description: ', description);
+    if(description!==null){
+        milestoneDescription=description[0];
+        console.log('description: ', description[0]);
+    }
+    else {
+        milestoneDescription=milestone.description;
+    }
+    
     html= `
-        <h3> ${milestone.description}</h3>       
+        <h3> ${milestoneDescription}</h3>       
         <a href="${milestone.url}">  <img class="github" src="./github.png" width="80" height="32" > <a> 
     `
     console.log(html);
