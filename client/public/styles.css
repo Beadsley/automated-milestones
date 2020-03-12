@@ -53,8 +53,8 @@ main h2 {
 }
 h3{
     font-size: 24px;
-    font-weight: lighter;
-    color: #201f1f;
+    font-weight: normal;
+    color: white;
 }
 .info-btn{
     color: white;
