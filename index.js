@@ -94,7 +94,7 @@ const getMilestones = async () => {
 
     if (currentDate > dueDate && milestone.state === "open") { milestone.state = "over" }
     return {
-      url: milestone.url,
+      url: milestone.html_url,
       title: milestone.title,
       description: milestone.description,
       state: milestone.state,

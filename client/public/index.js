@@ -40,6 +40,7 @@ const renderMilestoneInfo = (milestone, index) => {
     html= `
         <p> ${milestone.description}</p>
         <p> ${milestone.state}</p>
+        <a href="${milestone.url}"> Click <a> 
     `
     console.log(html);
     const container = document.querySelector(`.info-container-${index}`);
