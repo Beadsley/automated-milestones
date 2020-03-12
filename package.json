@@ -14,8 +14,7 @@
     "probot-app"
   ],
   "scripts": {
-    "dev": "nodemon & npm run server",
-    "server": "node server/app.js",
+    "dev": "nodemon",
     "start": "probot run ./index.js",
     "lint": "standard --fix",
     "test": "jest && standard",
@@ -23,6 +22,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
     "probot": "^9.5.3"
   },
   "devDependencies": {
