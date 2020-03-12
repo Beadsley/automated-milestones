@@ -45,10 +45,13 @@ module.exports = app => {
     const milestone = await getMilestone(milestoneids[0]);
 
     updateMilestone(milestone.id, milestone.title, milestone.description, milestone.due_on);
+    
+    app.log.info('URL: ', milestone.url);
 
+    
     const params = {
       sha: context.payload.commits[0].id,
-      "target_url": `${milestone.html_url}`,
+      "target_url": `${milestone.url}`,
       context: 'milestone',
       state: 'success',
       description: `${milestone.title}`
@@ -115,7 +118,7 @@ const getMilestones = async () => {
 }
 
 const commitMessages = async (commit) => {
-  const regex = /completes\s*\#\d+/ig;
+  const regex = /completes\s*m\_\d+/ig;
 
   let m;
   let result = [];
@@ -140,7 +143,8 @@ const getMilestone = async (id) => {
     "id": github.data.number,
     "title": github.data.title,
     "description": github.data.description,
-    "due_on": github.data.due_on
+    "due_on": github.data.due_on,
+    "url": github.data.html_url
   }
 }
 
