@@ -14,7 +14,7 @@ let ACCESSTOKEN;
  */
 module.exports = app => {
   ACCESSTOKEN = process.env.TOKEN;
-
+  commitMessages();
   router.use(express.static('client/public'))
   router.listen(8080, async () => {
     console.log('http://localhost:8080/');
@@ -36,6 +36,8 @@ module.exports = app => {
     app.log.info('REPO: ', context.payload.repository.name);
     app.log.info('ID: ', context.payload.commits[0].id);
     app.log.info('Message: ', context.payload.head_commit.message);
+    const repo=context.payload.repository.name;
+    const commitmessage=context.payload.head_commit.message;
 
     const params = {
       sha: context.payload.commits[0].id,
@@ -105,6 +107,51 @@ const getMilestones = async () => {
   return milestones;
 }
 
+const commitMessages = async () => {
+  const commit = "completes #4  completes #5"
+  const regex = /completes\s*\#\d+/ig;
+  
+      let m;
+      while ((m = regex.exec(commit)) !== null) {
+          // This is necessary to avoid infinite loops with zero-width matches
+          if (m.index === regex.lastIndex) {
+              regex.lastIndex++;
+          }
+          // The result can be accessed through the `m`-variable.
+          m.forEach(async (match, groupIndex) => {
+              console.log(`Found match, group ${groupIndex}: ${match}`);
+              const id = /\d+/.exec(match)[0];
+              console.log(`Milestone number: ${id}`);
+              const milestone = await getMilestone(id);
+              updateMilestone(milestone.id, milestone.title, milestone.description, milestone.due_on);
+          });
+      }
+}
+const getMilestone = async (id) => {
+  const github = await fetchFromGithubAPI(`/repos/${USER}/${REPO}/milestones/${id}`);
+  return milestone = {
+      "id": github.data.number,
+      "title": github.data.title,
+      "description": github.data.description,
+      "due_on": github.data.due_on
+  }
+}
+
+const updateMilestone = (id, title, description, due) => {
+  fetch(`https://api.github.com/repos/${USER}/${REPO}/milestones/${id}`, {
+      method: 'patch',
+      headers: {
+          "Content-Type": "application/json",
+          "Authorization": `token ${ACCESSTOKEN}`
+      },
+      body: JSON.stringify({
+          "title": title,
+          "state": "closed",
+          "description": description,
+          "due_on": due
+      })
+  }).then(response => response.json()).then(json => console.log(json));
+}
 
 module.exports.router = router;
 
