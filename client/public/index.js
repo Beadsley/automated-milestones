@@ -42,7 +42,7 @@ const renderMilestones = (milestones) => {
             let colour;
             let icon;
             if (x.state === "open") {
-                colour = "#43a047";
+                colour = "#ff7043";
                 icon = "alarm_time";
             }
             else if (x.state === "closed") {

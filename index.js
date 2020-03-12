@@ -84,12 +84,14 @@ const fetchFromGithubAPI = async (endpoint) => {
 * @param {*} id 
 */
 const getMilestones = async () => {
-  const response = await fetchFromGithubAPI(`/repos/${USER}/${REPO}/milestones`);
+  const response = await fetchFromGithubAPI(`/repos/${USER}/${REPO}/milestones?state=all`);
   const currentDate = new Date();
+  console.log(response);
+  
   const milestones = response.data.map(milestone => {
     const dueDate = Date.parse(milestone.due_on);
-    const formattedDate = moment(dueDate).format("MMM Do"); 
-    
+    const formattedDate = moment(dueDate).format("MMM Do");
+
     if (currentDate > dueDate && milestone.state === "open") { milestone.state = "over" }
     return {
       url: milestone.url,
