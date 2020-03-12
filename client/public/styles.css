@@ -1,12 +1,11 @@
-*{
-    
-}
+* {}
+
 .container {
     margin: auto;
-    
     width: max-content;
 }
-.circle-container{
+
+.circle-container {
     display: grid;
     justify-items: center;
     justify-content: center;
@@ -14,6 +13,7 @@
     position: absolute;
     bottom: 0;
 }
+
 .info-circle {
     display: flex;
     justify-content: center;
@@ -22,10 +22,9 @@
     width: 60px;
     background-color: #43a047;
     border-radius: 50%;
-    opacity: 0.8;   
-
-   
+    opacity: 0.8;
 }
+
 header {
     display: grid;
     grid-template-columns: 30% 60%;
@@ -33,14 +32,15 @@ header {
     justify-content: center;
     text-align: center;
     margin-right: 15%;
-
 }
-h1{
+
+h1 {
     font-size: 40px;
     font-weight: lighter;
     color: #201f1f;
     opacity: 0.9;
 }
+
 h2 {
     font-size: 30px;
     line-height: 1.5;
@@ -48,43 +48,48 @@ h2 {
     color: #ac5c51;
     opacity: 0.9;
 }
+
 main h2 {
     color: #201f1f;
 }
-h3{
+
+h3 {
     font-size: 24px;
     font-weight: normal;
     color: white;
 }
-.info-btn{
+
+.info-btn {
     color: white;
 }
 
-.first-circle{
+.first-circle {
     height: 20px;
     width: 20px;
     background-color: black;
     border-radius: 50%;
 }
-.second-circle{
+
+.second-circle {
     height: 15px;
     width: 15px;
     background-color: black;
     border-radius: 50%;
 }
-.third-circle{
+
+.third-circle {
     height: 10px;
     width: 10px;
     background-color: black;
     border-radius: 50%;
 }
-.fourth-circle{
+
+.fourth-circle {
     height: 5px;
     width: 5px;
     background-color: black;
     border-radius: 50%;
 }
-
 
 .milestones-container {
     padding: 2%;
@@ -95,7 +100,6 @@ h3{
     grid-gap: 55px;
     grid-auto-flow: column;
     position: relative;
-    
 }
 
 .milstone-container {
@@ -103,8 +107,12 @@ h3{
     flex-direction: column;
     align-items: center;
     height: 395px;
-    
 }
+
+/* 
+    #d32f2f   red
+    #ff5722    orange
+ */
 
 .milestone {
     border: 5px solid white;
@@ -117,14 +125,17 @@ h3{
     display: grid;
     align-content: center;
     opacity: 0.8;
-        
 }
 
-
-button{
+button {
     height: 200px;
     width: 200px;
 }
 
-.material-icons.md-48 { font-size: 48px; }
-.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 {
+    font-size: 48px;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
