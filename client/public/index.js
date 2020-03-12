@@ -7,21 +7,6 @@ window.addEventListener('load', async () => {
     const res = await fetch('/api/milestones');
     const milestones = await res.json()
     console.log(milestones);
-
-    const currentDate = new Date();
-    console.log(currentDate);
-    milestones.forEach(element => {
-        const duedate = Date.parse(element.due);
-        if (currentDate > duedate) {
-            console.log('fuuuuck');
-        }
-        else {
-            console.log('ok');
-
-        }
-    });
-
-
 });
 
 const infoButtons = document.querySelectorAll('#info');
