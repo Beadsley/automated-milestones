@@ -39,7 +39,7 @@ const renderMilestoneInfo = (milestone, index) => {
     console.log(milestone);
     html= `
         <h3> ${milestone.description}</h3>       
-        <a href="${milestone.url}">  <img class="github"src="./github.png" width="80" height="32" > <a> 
+        <a href="${milestone.url}">  <img class="github" src="./github.png" width="80" height="32" > <a> 
     `
     console.log(html);
     const container = document.querySelector(`.info-container-${index}`);
