@@ -95,14 +95,10 @@ const renderMilestones = (milestones) => {
         </div>
 
     </div>
-
-    <i class="material-icons md-48">keyboard_arrow_right</i>
-
-
                         `});
 
     const container = document.querySelector('.milestones-container');
-    container.innerHTML = html.join('');
+    container.innerHTML = html.join('<i class="material-icons md-48">keyboard_arrow_right</i>');
 }
 
 
