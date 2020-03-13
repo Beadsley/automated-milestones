@@ -36,6 +36,7 @@ header {
     padding: 1%;
     margin-right: 15%;
     grid-gap: 60px;
+    min-width: 2300px;
 }
 
 h1 {
