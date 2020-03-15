@@ -9,7 +9,7 @@ const ACCESSTOKEN = process.env.TOKEN;
  */
 
 const fetchFromGithubAPI = async (endpoint) => {
-    
+
     const api_call = await fetch(`https://api.github.com${endpoint}`, {
         method: 'get',
         headers: {
@@ -23,21 +23,21 @@ const fetchFromGithubAPI = async (endpoint) => {
 const findMilestoneIds = async (commit) => {
 
     const regex = /completes\s*m\_\d+/ig;
-    let m;
-    let result = [];
-    while ((m = regex.exec(commit)) !== null) {
+    let result;
+    let ids = [];
+    while ((result = regex.exec(commit)) !== null) {
         // This is necessary to avoid infinite loops with zero-width matches
-        if (m.index === regex.lastIndex) {
+        if (result.index === regex.lastIndex) {
             regex.lastIndex++;
         }
         // The result can be accessed through the `m`-variable.
-        m.forEach(async (match, groupIndex) => {
+        result.forEach(async (match, groupIndex) => {
             const milestone_id = /\d+/.exec(match)[0];
-            result.push(milestone_id);
+            ids.push(milestone_id);
             console.log(`Milestone number: ${milestone_id}`);
         });
     }
-    return result;
+    return ids;
 }
 
 /**
