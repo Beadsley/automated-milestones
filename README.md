@@ -1,6 +1,6 @@
 # automated-milestones
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that allows milestones (created in gitub) to be closed automatically via a git commit message.
+> A GitHub App built with [Probot](https://github.com/probot/probot) that allows milestones to be closed automatically via a git commit message. Milestones can also be visually analysed, an example can be found under the following [GitHub Pages](https://beadsley.github.io/automated-milestones/)
 
 ## How
 Writing `completes m_id`  (id being the milestone number) within a commit message, will automatically close a milestone and add a reference to that commit within the milestone description. The status of the commit will be modified, creating a direct link to the milestone under `Details`. 
