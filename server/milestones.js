@@ -1,6 +1,6 @@
 const fetch = require('node-fetch')
 var moment = require('moment')
-const REPO = 'Extra-Salty'
+const REPO = 'automated-milestones'
 const USER = 'Beadsley'
 const ACCESSTOKEN = process.env.TOKEN
 
