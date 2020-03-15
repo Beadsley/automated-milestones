@@ -44,7 +44,6 @@ module.exports = app => {
     app.log.info('milestone: ', milestoneids[0]);
 
     const milestone = await getMilestone(milestoneids[0]);
-    //const milestone = await getMilestone(0);
 
 
     updateMilestone(milestone.id, milestone.title, `${milestone.description} commit:${commit_url}`, milestone.due_on);
@@ -60,20 +59,7 @@ module.exports = app => {
       description: `${milestone.title}`
     }
     return context.github.repos.createStatus(context.repo(params));
-    // const issueComment = context.issue({ body: 'Thanks for opening this issue!' })
-    // return context.github.issues.createComment(issueComment)
   })
-
-  app.on('issues.opened', async context => {
-    const issueComment = context.issue({ body: 'Thanks for opening this issue!' })
-    return context.github.issues.createComment(issueComment)
-  })
-
-  // For more information on building apps:
-  // https://probot.github.io/docs/
-
-  // To get your app running against GitHub, see:
-  // https://probot.github.io/docs/development/
 }
 
 
