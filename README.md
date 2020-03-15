@@ -1,6 +1,8 @@
 # automated-milestones
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that A Probot app
+> A GitHub App built with [Probot](https://github.com/probot/probot) that allows milestones (created in gitub) to be closed automatically via a git commit message.
+
+![alt text](https://github.com/Beadsley/automated-milestones/blob/refactor/commits-message.png)
 
 ## Setup
 
@@ -14,9 +16,7 @@ npm start
 
 ## Contributing
 
-If you have suggestions for how automated-milestones could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
 
-For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
 ## License
 
